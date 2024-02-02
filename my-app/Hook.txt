@@ -1,9 +1,66 @@
+2024-02-02  시작
 React
 
 State Hook
-    useState
-    useReducer
+2024-02-02
+    useState(initialState) : state 변수를 추가할 수 있게 하는 React Hook
+        컴포넌트 최상위 레벨에서 useState 호출 state변수를 선언
+            ex ) const [age,setAge] = useState(20);
+        반환값
+            1.현재 state
+            2. state를 다른 값으로 업데이트 하고 리렌더링을 촉발할 수 있는 set(설정자) 함수
+                ex )const [age,setAge] = useState(20);
+                    const [name,setName] = useState('Cho');
+                function handleClick(){
+                    setName('CHO');
+                    setAge( a=> a + 1);
+                    console.log(name) ; // Still "Cho" !!!
+                                        // 아직 "Cho"  
+                }
+                설정자 함수 Set 은 반환값이 없다. 값을 설정만 해주는 역할
 
+                💡 중요 💡
+                    // set 함수를 호출해도 이미 실행중인 코드의 state 는 변경되지 않습니다.!
+                    // set 함수는 다음 렌더링에서 반환할 useState에만 영향을 줍니다.
+
+                    age : 25 가정
+                    function handleClick(){
+                        set(age + 1 )// setAge(25 +1)
+                        set(age + 1 )// setAge(25 +1)
+                        set(age + 1 )// setAge(25 +1)
+                    } >> 결과는 28이 아니라 26
+                    28을 만들고 싶다면
+                    업데이터 함수
+                    function handleClick(){
+                        setAge( a => a + 1) ; // setAge(25 => 26) 기존값에서 1을 더하기
+                        setAge( a => a + 1) ; // setAge(26 => 27) 기존값에서 1을 더하기
+                        setAge( a => a + 1) ; // setAge(27 => 28) 기존값에서 1을 더하기
+                    }
+
+2024-02-02
+    useReducer(reducer ,initialArg , init?)
+        여러개의 하위 값을 지닌 state를 다룰 때 useReducer 를 사용하면 좋다
+        Reducer Action Dispatch 세 가지 알기
+        처리     행동     요구
+
+
+
+            ex ) (함수명 , {age : 25})
+        state에서 좀 더 업데이트 된 기능
+        반환값 
+            1. 현재 state , 첫 번째 렌더링 중에는 init(initialArg) 또는 (init이 없는 경우) initialArg로 설정
+            2. state 를 다른 값으로 업데이트 하고 재렌더링을 트리거 할 수 있는 dispatch funtion
+
+        사용법
+            import { useReducer } from 'react'
+
+            function reducer(state , action){
+                //...
+            }
+
+            function MyComponent() {
+                const [state , dispatch] =useReducer(reducer,{ age : 25 })
+            //....
 
 Context Hook
     useContext
@@ -19,4 +76,9 @@ Effect Hook
 Performance Hook
     useMemo
     useCallback
-    
+
+
+
+BrowserRouter >> npm install react-router-dom
+     웹 화면에서 메뉴, 특정 주소를 입력 시 화면 전환인 라우팅 처리를 위한 react-router-dom
+     

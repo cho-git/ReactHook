@@ -7,8 +7,20 @@ const ACTION_TYPE = {
     delete_student: 'delete-student',
     mark_student: 'mark-student'
 }
+const initialState = {
+    count: 1,
+    students: [
+        {
+            id: Date.now(),
+            name: 'Cho',
+            isHere: false,
+        }
+    ]
+
+}
 
 const reducer = (state, action) => {
+    debugger
     switch (action.type) {
         case ACTION_TYPE.add_student:
             const name = action.payload.name;
@@ -26,6 +38,7 @@ const reducer = (state, action) => {
                     students: [...state.students, newStudent]
                 }
             };
+            
         case ACTION_TYPE.delete_student:
             return {
                 count: state.count - 1,
@@ -44,19 +57,6 @@ const reducer = (state, action) => {
         default:
             return state;
     }
-
-}
-
-const initialState = {
-    count: 1,
-    students: [
-        {
-            id: Date.now(),
-            name: 'Cho',
-            isHere: false,
-        }
-    ]
-
 }
 
 

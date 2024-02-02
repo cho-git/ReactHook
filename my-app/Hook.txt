@@ -63,7 +63,16 @@ State Hook
             //....
 
 Context Hook
+2024-02-02
     useContext
+        부모에서 자식 컴퍼넌트로 props 를 전달 하기 위한 ReactHook
+        광범위한 파일구조에서 일일히 넘겨주기 힘들기 때문에 전역변수 같이 하위 컴포넌트에서 선언만 해주면 사용가능
+
+        가장 하위에 있는 컴포넌트에서만 props 가 필요할떄 useContext를 사용하지 않는다면 모든 부모 컴포넌트를 통해 props를 
+        전달 받아야하는 번거로움이 있다
+
+        Context 를 사용하면 컴포넌트를 재사용하기 어려워 질 수 있다.
+        
 
 Ref Hook
     useRef

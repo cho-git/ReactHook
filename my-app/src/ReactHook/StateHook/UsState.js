@@ -9,8 +9,12 @@ const UsState = () => {
         console.log(name, age) // Still "Cho" !!!
     }
     return (
-        <div style={{textAlign:'center'}}>
-            <h2>useState 연습장입니다.</h2>
+        <div id='top' style={{
+            textAlign: 'center',
+            paddingBottom: '10px',
+            paddingTop: '15px',
+        }}>
+            <h3>useState 연습장입니다.</h3>
             {name} , {age} <p></p>
             <button onClick={handleClick}>button</button>
         </div>

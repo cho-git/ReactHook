@@ -65,7 +65,7 @@ const UsReducerVer2 = () => {
     const [studentsInfo, dispatch] = useReducer(reducer, initialState)
     return (
         <div style={{textAlign:'center'}}>
-            <h2>출석부</h2>
+            <h3>출석부</h3>
             <p>총 학생 수 : {studentsInfo.count}</p>
             <input
                 type="text"
@@ -77,8 +77,13 @@ const UsReducerVer2 = () => {
                 dispatch({ type: ACTION_TYPE.add_student, payload: { name } })
                 setName('');
             }}>추가</button>
+            <div style={{
+                marginTop:'10px',
+                marginBottom:'15px'
+            }}>출석 인원을 클릭해주세요</div>
             {studentsInfo.students.map(student => {
-                return (<Student
+                return (
+                <Student
                     ACTION_TYPE={ACTION_TYPE}
                     key={student.id}
                     name={student.name}

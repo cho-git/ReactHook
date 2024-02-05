@@ -36,7 +36,7 @@ const UsReducer = () => {
     const [money, dispatch] = useReducer(reducer, 0);
     return (
         <div style={{textAlign:'center'}}>
-            <h2>useReducer 은행</h2>
+            <h3>useReducer 은행</h3>
             <p> 잔고 : {money} 원</p>
             <input
                 type="number"

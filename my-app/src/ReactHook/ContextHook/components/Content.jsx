@@ -19,6 +19,9 @@ const Content = () => {
                 backgroundColor: isDark ? 'black' : 'white',
                 color: isDark ? 'white' : "black"
             }}>
+            <div>
+                <p>hi {user}</p>
+            </div>
             <div id="userText">
                 <input
                     placeholder="이름을 입력해주세요"
@@ -27,9 +30,6 @@ const Content = () => {
                 <button
                     onClick={UserChange}
                 >확인</button>
-            </div>
-            <div>
-                <p>hi {user}</p>
             </div>
         </div>
     )

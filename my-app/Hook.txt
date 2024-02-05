@@ -166,7 +166,7 @@ Ref Hook
 
 2024-02-05
 
-    useimperativehandle ( ref , createHandle , dependencies ? )
+    -useimperativehandle ( ref , createHandle , dependencies ? )
 
         사용자가 정의한 Input 컴포넌트에 ref를 전달하고 싶을 때 사용합니다.
         ref를 사용하려면 Input 컴포넌트를 React.forwardRef로 수정한 뒤 useImperativeHandle을 사용하여 부모 컴포넌트에서 ref를 핸들링할 수 있도록 해야합니다.
@@ -206,23 +206,19 @@ Effect Hook
 2024-02-05
 
     useEffect(() =>{}) 기본적으로 인자로 callback 함수를 받는다.
+
         어떠한 컴포넌트가  1.Mount(화면에서 첫 렌더링) 됐을 때  2. Update(다시 렌더링) 됐을 떄 3. UnMount(화면에서 사라질 떄) 됐을 때 
             특정 작업을 처리하는 코드를 실행 시키고 싶을 때 사용한다.
-    callback 함수 내에 원하는 작업을 처리해줄 코드를 작성해주면 된다.
+        callback 함수 내에 원하는 작업을 처리해줄 코드를 작성해주면 된다.
 
-1. 렌더링 될 때마다 실행
+    1. 렌더링 될 때마다 실행
     useEffect(() => {
         // 작업 ..
     });
-2. 맨 처음 렌더링 될 때 실행 value 가 바뀔 떄 실행
+    2. 맨 처음 렌더링 될 때 실행 value 가 바뀔 떄 실행
     useEffect (() =>{
         // 작업 ..
     } , [value]) // dependenciesArray > [value] 가 아닌 [] 빈 배열일 경우 맨 처음 렌더링 될 때만 실행
-
-        
-        
-
-
 
     useLayoutEffect
     useInsertionEffect

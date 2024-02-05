@@ -29,7 +29,9 @@ const UsEffect = () => {
             paddingTop: '15px',
         }}>
             <h3>useEffect</h3>
-            <button onClick={handleCountUpdate}>update</button>
+            <button
+                style={{ marginRight: '10px ' }}
+                onClick={handleCountUpdate}>update</button>
             <span>count : {count}</span>
 
             <div style={{ marginTop: '10px' }}>

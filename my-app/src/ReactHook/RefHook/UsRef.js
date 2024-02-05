@@ -31,27 +31,41 @@ const UsRef = () => {
             <div style={{
                 paddingTop: '20px'
             }}>
-                <Link style={{
-                    marginRight: '5px',
-                    textDecoration: 'none',
-                    color: 'pink',
-                    fontWeight: 'bold',
-                }}
-                    to={"/UsRefVer1_2"}>useRef v.1.2 |</Link>
-                <Link style={{
-                    marginRight: '5px',
-                    textDecoration: 'none',
-                    color: 'pink',
-                    fontWeight: 'bold',
-                }}
-                    to={"/UsRefVer1_3"}>useRef v.1.3 |</Link>
-                <Link style={{
-                    marginRight: '5px',
-                    textDecoration: 'none',
-                    color: 'pink',
-                    fontWeight: 'bold',
-                }}
-                    to={"/UsRefVer2"}>usRef v.2</Link>
+                <div>
+                    <Link style={{
+                        marginRight: '5px',
+                        textDecoration: 'none',
+                        color: 'pink',
+                        fontWeight: 'bold',
+                    }}
+                        to={"/UsRefVer1_2"}>useRef v.1.2 |</Link>
+                    <Link style={{
+                        marginRight: '5px',
+                        textDecoration: 'none',
+                        color: 'pink',
+                        fontWeight: 'bold',
+                    }}
+                        to={"/UsRefVer1_3"}>useRef v.1.3 |</Link>
+                    <Link style={{
+                        marginRight: '5px',
+                        textDecoration: 'none',
+                        color: 'pink',
+                        fontWeight: 'bold',
+                    }}
+                        to={"/UsRefVer2"}>usRef v.2</Link>
+                    <div style={{
+                        marginRight: '13%',
+                        marginTop : '2%'
+                    }}>
+                        <Link style={{
+                            marginRight: '5px',
+                            textDecoration: 'none',
+                            color: 'gray',
+                            fontWeight: 'bold',
+                        }}
+                            to={"/ForwardReff"}>forwardRef</Link>
+                    </div>
+                </div>
             </div>
         </div>
     )

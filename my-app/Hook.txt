@@ -1,12 +1,16 @@
 2024-02-02  시작
 참고 페이지 
     https://react-ko.dev/reference/react/useReducer
-    https://www.youtube.com/@starcoding
-React
+    https://www.youtube.com/@starcoding\
 
+                                    -React Hook-
+                        React Hook 은 최상위 레벨에서만 사용 가능
 State Hook
+
 2024-02-02
-    useState(initialState) : state 변수를 추가할 수 있게 하는 React Hook
+
+    -useState(initialState) : state 변수를 추가할 수 있게 하는 React Hook
+
         컴포넌트 최상위 레벨에서 useState 호출 state변수를 선언
             ex ) const [age,setAge] = useState(20);
         반환값
@@ -41,7 +45,9 @@ State Hook
                     }
 
 2024-02-02
-    useReducer(reducer ,initialArg , init?)
+
+    -useReducer(reducer ,initialArg , init?)
+
         여러개의 하위 값을 지닌 state를 다룰 때 useReducer 를 사용하면 좋다
         Reducer Action Dispatch 세 가지 알기
         처리     행동     요구
@@ -66,9 +72,11 @@ State Hook
             //....
 
 Context Hook
+
 2024-02-02
-    useContext
-        부모에서 자식 컴퍼넌트로 props 를 전달 하기 위한 ReactHook
+
+    -useContext (🎈UsContext 참고🎈) 부모에서 자식 컴퍼넌트로 props 를 전달 하기 위한 ReactHook
+        
         광범위한 파일구조에서 일일히 넘겨주기 힘들기 때문에 전역변수 같이 하위 컴포넌트에서 선언만 해주면 사용가능
 
         가장 하위에 있는 컴포넌트에서만 props 가 필요할떄 useContext를 사용하지 않는다면 모든 부모 컴포넌트를 통해 props를 
@@ -78,32 +86,137 @@ Context Hook
         
 
 Ref Hook
-    useRef 렌더링에 필요하지 않ㄴ
-    
+
+2024-02-05
+
+    -useRef(initialValue) 렌더링에 필요하지 않는 값을 참조할 수 있는 React 훅
+
+        ex ) useRef(0);
+             useRef(null);  
+        ref.current 프로퍼티는 state 와 달리 변이할 수 있다.
+
+        1. (렌더링할 때마다 재설정되는 일반 변수와 달리)리렌더링 사이에 정보를 저장할 수 있다.
+        2. (리렌더링을 촉발하는 state 변수와 달리) 변경해도 리렌더링을 촉발하지 않습니다.
+        3. (정보가 공유되는 외부 변수와 달리) 각각의 컴포넌트에 로컬로 저장됩니다.
+                                                                >>>>>> 컴포넌트에 저장되진 않는다.
+        /* useRef 직접구현 */
+        /* const myRef = useRef(initialValue); */
+        const useRef = (value) =>{
+            /* const [ref , unused] = useState ({ current : value })  와 같다*/
+            const [ref] = useState({ current : value })
+            return ref
+        }
+
+
         함수형 컴포넌트에서 userRef 를 호출하면 ref object 를 반환해시켜준다.
         const ref = useRef(value);
             >> ref >>>>>> { current : value } : 수정이 가능 하기에 언제든 원하는 값으로 바꿔줄 수 있다.
         
-        1.저장공간으로 사용하기 용이
+        1.저장공간으로 사용하기 용이 (🎈UsRef 참고🎈)
         State의 변화 > 렌더링 > 컴포넌트 내부 변수들 초기화
         Ref > No 렌더링 > 변수들의 값이 유지됨
         State의 변화 > 렌더링 > Ref 유지됨
               변경시 렌더링을 발생시키지 않아야 할 경우에 사용하기에 용이하다.
-        2. Dom 요소에 접근
-            ex)  Ref >> focus() input 요소에 접근 용이
+
+        2. Dom 요소에 접근 >>> (🎈UsRefVer2 참고🎈)
+            ex )  Ref >> focus() input 요소에 접근 용이
                바닐라 자바스크립트의  Document.querySelector()와 비슷
+
+    -forwardRef 부모 컴포넌트에서 자녀 컴포넌트에 접근해야할 때 사용
+    
+        폼에서 곧바로 ref 를 사용하지 못하고 하위에 있는 컴포넌트한테 Ref 를 넘겨주고 싶을 때 forwardRef 사용가능
+            ex) 
+    1.      
+        import { forwardRef , useRef } from 'react
+
+        const MyInput = forwardRef((props , ref) =>{
+                return <input {...props} ref = {ref} />;
+            });
+
+            export default function Form() {
+                const inputRef = useRef(null);
+            
+            function handleClick(){
+                inputRef.current.focus();
+            };
+            return(
+                <>
+                <MyInput ref={inputRef} />
+                <button onClick={handleClick}>
+                    Focus the input
+                    </button>
+                </>
+            );
+        };
+
+    2. 
+    import { forwardRef } from 'react
+
+    const MyInput = forwardRef(({ value , onChange} , ref) =>{
+        return (
+            <input
+                value{value}
+                onChange={onChange}
+                ref={ref}
+            />
+        );
+    });
+
+    export default MyInput;
+
+2024-02-05
+
+    useimperativehandle ( ref , createHandle , dependencies ? )
+
+        사용자가 정의한 Input 컴포넌트에 ref를 전달하고 싶을 때 사용합니다.
+        ref를 사용하려면 Input 컴포넌트를 React.forwardRef로 수정한 뒤 useImperativeHandle을 사용하여 부모 컴포넌트에서 ref를 핸들링할 수 있도록 해야합니다.
+
+        ref 로 노출되는 핸들을 사용자가 직접 정의할 수 있게 해주는 React Hook
+        useimperativehandle 은 undefined 를 반환
+        
+    상위 컴포넌트에게 노출하고 싶은 메서드만 노출하기 위해 사용하는 Hook 이므로 forwardRef 를 사용
+
+        예를 들어 <input> DOM 노드를 노출하지 않고 focus 와 scrollIntoView 의 두 메서드만 노출하고 싶을 때
+            ex ) 
+            import { forwardRef , userRef , useimperativehandle} from 'react'
+
+            const MyInput = forwardRef(function MyInput (props , ref) {
+                const inputRef =useRef(null);
+
+                useImperativeHandle( ref, () =>{
+                    return {
+                        focus () {
+                            inputRef.current.focus();
+                        },
+                        scrollIntoView() {
+                            inputRef.current.scrollIntoView();
+                        },
+                    };
+                },[]);
+
+                return <input {...props} ref={inputRef} />;
+
+            });
+            
+            export default MyInput;
             
 
-
-    useImperaativeHandle
-
 Effect Hook
+
+2024-02-05
+
+    useEffect
+
+
     useLayoutEffect
     useInsertionEffect
 
 Performance Hook
+
     useMemo
     useCallback
+    useTransition
+    useDeferredValue
 
 
 

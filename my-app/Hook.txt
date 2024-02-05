@@ -78,7 +78,23 @@ Context Hook
         
 
 Ref Hook
-    useRef
+    useRef 렌더링에 필요하지 않ㄴ
+    
+        함수형 컴포넌트에서 userRef 를 호출하면 ref object 를 반환해시켜준다.
+        const ref = useRef(value);
+            >> ref >>>>>> { current : value } : 수정이 가능 하기에 언제든 원하는 값으로 바꿔줄 수 있다.
+        
+        1.저장공간으로 사용하기 용이
+        State의 변화 > 렌더링 > 컴포넌트 내부 변수들 초기화
+        Ref > No 렌더링 > 변수들의 값이 유지됨
+        State의 변화 > 렌더링 > Ref 유지됨
+              변경시 렌더링을 발생시키지 않아야 할 경우에 사용하기에 용이하다.
+        2. Dom 요소에 접근
+            ex)  Ref >> focus() input 요소에 접근 용이
+               바닐라 자바스크립트의  Document.querySelector()와 비슷
+            
+
+
     useImperaativeHandle
 
 Effect Hook

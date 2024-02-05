@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from "react";
-
+import { Link } from "react-router-dom"
 // state가 복잡할 경우 사용하기 좋은 useReducer
 // reducer -state 를 업데이트 하는 역할 (은행)
 // dispatch -state 업데이트를 위한 요구
@@ -35,7 +35,7 @@ const UsReducer = () => {
     const [number, setNumber] = useState(0);
     const [money, dispatch] = useReducer(reducer, 0);
     return (
-        <div style={{textAlign:'center'}}>
+        <div style={{ textAlign: 'center' }}>
             <h3>useReducer 은행</h3>
             <p> 잔고 : {money} 원</p>
             <input
@@ -46,11 +46,24 @@ const UsReducer = () => {
             />
             <button onClick={() => {
                 // dispatch({ type: "deposit", payload: number })
-                dispatch({ type: ACTION_TYPE.deposit , payload: number })
+                dispatch({ type: ACTION_TYPE.deposit, payload: number })
             }}>예금</button>
             <button onClick={() => {
                 dispatch({ type: ACTION_TYPE.withdraw, payload: number })
             }}>출금</button>
+            
+            <div style={{
+                paddingTop: '20px'
+            }}>
+                <Link
+                    style={{
+                        marginRight: '5px',
+                        textDecoration: 'none',
+                        color: 'pink',
+                        fontWeight: 'bold',
+                    }}
+                    to="/UsReducerVer2"> UseReducer 심화</Link>
+            </div>
         </div>
     )
 }

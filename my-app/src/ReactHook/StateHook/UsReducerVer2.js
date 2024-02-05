@@ -92,6 +92,7 @@ const UsReducerVer2 = () => {
                     isHere={student.isHere}
                 />)
             })}
+        
         </div>
     )
 }

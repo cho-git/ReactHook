@@ -8,7 +8,8 @@ const Content = () => {
     const [userText, setUserText] = useState('')
     // const user = useContext(UserContext)
     const UserChange = () => {
-        console.log('UserChange')
+        // debugger
+        // console.log('UserChange')
         setUser(userText)
     }
     return (

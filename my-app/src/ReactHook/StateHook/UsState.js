@@ -9,7 +9,7 @@ const UsState = () => {
         console.log(name, age) // Still "Cho" !!!
     }
     return (
-        <div>
+        <div style={{textAlign:'center'}}>
             <h2>useState 연습장입니다.</h2>
             {name} , {age} <p></p>
             <button onClick={handleClick}>button</button>

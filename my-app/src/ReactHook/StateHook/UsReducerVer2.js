@@ -64,7 +64,7 @@ const UsReducerVer2 = () => {
     const [name, setName] = useState('');
     const [studentsInfo, dispatch] = useReducer(reducer, initialState)
     return (
-        <div>
+        <div style={{textAlign:'center'}}>
             <h2>출석부</h2>
             <p>총 학생 수 : {studentsInfo.count}</p>
             <input

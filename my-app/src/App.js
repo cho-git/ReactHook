@@ -6,11 +6,12 @@ import UsReducer from './ReactHook/StateHook/UsReducer';
 import UsReducerVer2 from './ReactHook/StateHook/UsReducerVer2';
 import UsContext from './ReactHook/ContextHook/UsContext';
 import UsRef from './ReactHook/RefHook/UsRef';
+import UsRefVer1_1 from './ReactHook/RefHook/UsRefVer1_1';
 import UsRefVer1_2 from './ReactHook/RefHook/UsRefVer1_2';
-import UsRefVer1_3 from './ReactHook/RefHook/UsRefVer1_3';
 import UsRefVer2 from './ReactHook/RefHook/UsRefVer2';
 import ForwardReff from './ReactHook/RefHook/forwardRef/ForwarReff';
 import UsEffect from './ReactHook/EffectHook/UsEffect';
+import UsEffectVer1_1 from './ReactHook/EffectHook/UsEffectVer1_1';
 import './index.css'
 function App() {
   const commonStyle = {
@@ -43,11 +44,12 @@ function App() {
         <Route path='/UsReducerVer2' element={<UsReducerVer2 />} />
         <Route path='/UsContext' element={<UsContext />} />
         <Route path='/UsRef' element={<UsRef />} />
+        <Route path='/UsRefVer1_1' element={<UsRefVer1_1 />} />
         <Route path='/UsRefVer1_2' element={<UsRefVer1_2 />} />
-        <Route path='/UsRefVer1_3' element={<UsRefVer1_3 />} />
         <Route path='/UsRefVer2' element={<UsRefVer2 />} />
         <Route path='/ForwardReff' element={<ForwardReff />}/>
         <Route path='/UsEffect' element={<UsEffect />}/>
+        <Route path='/UsEffectVer1_1' element={<UsEffectVer1_1 />}/>
       </Routes>
     </div >
 

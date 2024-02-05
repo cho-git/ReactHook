@@ -38,14 +38,14 @@ const UsRef = () => {
                         color: 'pink',
                         fontWeight: 'bold',
                     }}
-                        to={"/UsRefVer1_2"}>useRef v.1.2 |</Link>
+                        to={"/UsRefVer1_1"}>useRef v.1.1 |</Link>
                     <Link style={{
                         marginRight: '5px',
                         textDecoration: 'none',
                         color: 'pink',
                         fontWeight: 'bold',
                     }}
-                        to={"/UsRefVer1_3"}>useRef v.1.3 |</Link>
+                        to={"/UsRefVer1_2"}>useRef v.1.2 |</Link>
                     <Link style={{
                         marginRight: '5px',
                         textDecoration: 'none',

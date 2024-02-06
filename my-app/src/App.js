@@ -13,6 +13,8 @@ import ForwardReff from './ReactHook/RefHook/forwardRef/ForwarReff';
 import UsEffect from './ReactHook/EffectHook/UsEffect';
 import UsEffectVer1_1 from './ReactHook/EffectHook/UsEffectVer1_1';
 import UsEffectVer2 from './ReactHook/EffectHook/UsEffectVer2';
+import UsMemo from './ReactHook/PerformanceHook/UsMemo';
+import UsMemoVer2 from './ReactHook/PerformanceHook/UsMemoVer2';
 import './index.css'
 function App() {
   const commonStyle = {
@@ -36,6 +38,7 @@ function App() {
           <Link style={commonStyle} to={"/UsContext"}> useContext |</Link>
           <Link style={commonStyle} to={"/UsRef"}> useRef |</Link>
           <Link style={commonStyle} to={"/UsEffect"}> useEffect |</Link>
+          <Link style={commonStyle} to={"/UsMemo"}> useMemo |</Link>
           
         </nav>
       </div>
@@ -53,6 +56,8 @@ function App() {
         <Route path='/UsEffect' element={<UsEffect />}/>
         <Route path='/UsEffectVer1_1' element={<UsEffectVer1_1 />}/>
         <Route path='/UsEffectVer2' element={<UsEffectVer2 />}/>
+        <Route path='/UsMemo' element={<UsMemo />}/>
+        <Route path='/UsMemoVer2' element={<UsMemoVer2 />}/>
       </Routes>
     </div >
 
@@ -61,3 +66,4 @@ function App() {
 }
 
 export default App;
+

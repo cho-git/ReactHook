@@ -282,7 +282,56 @@ Effect Hook
 
 Performance Hook
 
+     Optimization(최적화) 를 위한 대표적인 ReactHook 
+                                            useMemo , useCallback
     useMemo
+        동일한 값을 리턴하는 함수를 반복적으로 호출해야 할 경우
+         맨처음 값을 계산할 때 해당 값을 메모리에 저장한 뒤 
+            다시 계산하지 않고 필요할 때 꺼내쓰는 재사용하는 기법
+
+        Memo = Memoization  >>>>> 함수를 메모리에 할당해서 사용하기 때문에 무분별한 사용은 오히려 메모리 성능에 저하를 일으킬 수 있다 .
+                                    필요한 경우에만 사용하자.
+
+        ex ) funtion Component() {
+            const value = useMemo (()=> calculate() ,[]
+            )
+            return <div>{value}</div>
+        }
+        구조 const value = useMemo (()=> calculate() ,[] )
+                                    ㄴ 첫 번째 인자 callback함수 , 두 번째 인자는 배열
+        
+        💡 중요 💡
+        // UsMemoVer2참고 !여기서! 원시(Primitive) 타입과 객체(Object) 타입에 대해서 알아보자
+        javaScript 타입은 아래가 있다. (P. / O. 로 부르겠음)
+            1.원시(Primitive)             2.객체(Object)
+                String                      Object
+                Number                      Array
+                Boolean                      ...
+                Null
+                UndeFined
+                BigInt
+                Symbol
+
+        P. const location ="korea" >>>> location 에 "korea" 가 담긴다
+        O. const location = {country : "korea"} 경우 >>>>> location #12345 라는 메모리상의 공간이 할당되고 
+                    변수안에는 그 객체가 담긴 메모리의 주소가 할당된다  #12345 {country : "korea"}
+            
+        P. 
+        const locationOne = "korea"
+        const locationTwo = "korea"
+            locationOne === locationTwo > true
+        O.
+        const locationOne ={
+            country :"korea"
+        }
+        const locationTwo ={
+            country :"korea"
+        }
+            locationOne === locationTwo > false
+        // 변수 안에는 메모리 상의 주소가 들어있기 떄문에 두 객체는 다른 주소를 비교하기에 false 가 나온다 !!!!!!!!!!!!
+        
+
+
     useCallback
     useTransition
     useDeferredValue

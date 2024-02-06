@@ -35,14 +35,14 @@ const UsEffect = () => {
             <span>count : {count}</span>
 
             <div style={{ marginTop: '10px' }}>
-
+            <span>name : {name}</span>
                 <input
                     style={{
                         width: '20%',
-                        marginRight: '5%'
+                        marginLeft: '1%'
                     }}
                     type="text" value={name} onChange={handleInputChange} />
-                <span>name : {name}</span>
+
             </div>
             <div style={{
                 paddingTop: '20px'
@@ -53,7 +53,14 @@ const UsEffect = () => {
                     color: 'pink',
                     fontWeight: 'bold',
                 }}
-                    to={"/UsEffectVer1_1"}>UsEffect v.1.1</Link>
+                    to={"/UsEffectVer1_1"}>useEffect v.1.1</Link>
+                    <Link style={{
+                    marginRight: '5px',
+                    textDecoration: 'none',
+                    color: 'pink',
+                    fontWeight: 'bold',
+                }}
+                    to={"/UsEffectVer2"}>useEffect v.2</Link>
             </div>
         </div>
     )

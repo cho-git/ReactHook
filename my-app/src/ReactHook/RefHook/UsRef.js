@@ -52,7 +52,7 @@ const UsRef = () => {
                         color: 'pink',
                         fontWeight: 'bold',
                     }}
-                        to={"/UsRefVer2"}>usRef v.2</Link>
+                        to={"/UsRefVer2"}>useRef v.2</Link>
                     <div style={{
                         marginRight: '13%',
                         marginTop : '2%'

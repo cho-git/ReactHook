@@ -206,7 +206,7 @@ Effect Hook
 2024-02-05
 
     useEffect(() =>{}) 기본적으로 인자로 callback 함수를 받는다.
-
+                
         어떠한 컴포넌트가  1.Mount(화면에서 첫 렌더링) 됐을 때  2. Update(다시 렌더링) 됐을 떄 3. UnMount(화면에서 사라질 떄) 됐을 때 
             특정 작업을 처리하는 코드를 실행 시키고 싶을 때 사용한다.
         callback 함수 내에 원하는 작업을 처리해줄 코드를 작성해주면 된다.
@@ -215,12 +215,53 @@ Effect Hook
     useEffect(() => {
         // 작업 ..
     });
-    2. 맨 처음 렌더링 될 때 실행 value 가 바뀔 떄 실행
+    2. 맨 처음 렌더링 될 때 실행 , value 가 바뀔 떄 실행
     useEffect (() =>{
         // 작업 ..
     } , [value]) // dependenciesArray > [value] 가 아닌 [] 빈 배열일 경우 맨 처음 렌더링 될 때만 실행
 
+       2-1 [value1 , value2] >> 맨 처음 렌더링 될 때 실행 , value1 과 value2 가 바뀔 떄 실행 
+
+            https://github.com/cho-git/ReactHook/blob/main/my-app/src/ReactHook/EffectHook/UsEffect.js
+            에서 useEffect 파트를 공부하던 중 왜 내 useEffect 는 왜 두 번 실행 될까 ? 
+            When Strict Mode is on, in development, React runs setup and cleanup one extra time before the actual setup.
+            StrictMode가 켜져 있으면, 개발환경에서 React는 실제 셋업 전에 셋업 및 클린업을 한 번 더 실행합니다.
+
+
     반응형 값 :props , 컴포넌트 내부에서 선언된 모든 변수 , 함수
+
+    불필요한 의존성 제거하기 
+    function ChatRoom({ roomId }) {
+
+        const [message, setMessage] = useState('');
+
+        const options = { 
+        serverUrl: serverUrl,
+        roomId: roomId
+        };
+
+        useEffect(() => {
+          const connection = createConnection(options); 
+          connection.connect();
+          return () => connection.disconnect();
+        }, [options]);
+    } 
+    // 이런 경우 useEffect 가 렌더링 중에 생성된 객체를 의존하는 경우 필요 이상으로 자주 실행 될수 있다
+    // 렌더링 중에 객체를 의존성에 사용하지 말고 useEffect 안에서 객체를 생성하자
+    useEffect(() => {
+         const options = {
+           serverUrl: serverUrl,
+           roomId: roomId
+         };
+         const connection = createConnection(options);
+         connection.connect();
+         return () => connection.disconnect();
+    }, [roomId]);
+    // 함수 일 경우에도 마찬가지. 
+
+
+    //?useEffectEvent?가 뭐지//
+
 
     useLayoutEffect
     useInsertionEffect
@@ -237,3 +278,29 @@ Performance Hook
 BrowserRouter >> npm install react-router-dom
      웹 화면에서 메뉴, 특정 주소를 입력 시 화면 전환인 라우팅 처리를 위한 react-router-dom
      
+
+
+
+번외 React 의 느낌
+    참고 https://www.youtube.com/watch?v=xnk_1Q1O5ro&list=PLjQV3hketAJkh6BEl0n4PDS_2fBd0cS9v&t=728s
+        35분35초.인용함
+        서버에서 삐쩍 마른 트리(나무)를 html 형태로 클라이언트로 전달
+
+        <ul>                        >>하드코딩
+            <li>홍길동</li>
+            <li>Cho</li>
+        </ul>
+
+        정적 데이터를 그린 html ... 죽어있음
+
+        클라이언트는 온갖 정보들 (영양소)을 나무에 뿌림
+
+        const members = ['홍길동', 'Cho] 
+
+        <ul>
+            {members.map(m =><li>{m}</li>)}   
+        </ul>
+
+        이제 나무가 꽃을 피우고 잎이 납니다.. 다시 살아남..
+
+        hydration 물주기 수화작용

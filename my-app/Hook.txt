@@ -263,7 +263,7 @@ Effect Hook
     //?useEffectEvent?가 뭐지//
 
 
-    💋useLayoutEffect( setup , dependencies?)는 브라우저가 화면을 다시 채우기 전에 실행되는 버전의 useEffect
+    💋useLayoutEffect( setup , dependencies? )는 브라우저가 화면을 다시 채우기 전에 실행되는 버전의 useEffect
         useEffect와 비슷한 부분이 많으므로 간략
                 >> useLayoutEffect 를 호출하여 레이아웃을 측정
                 >> Hook 이므로 최상위 레벨에서 호출
@@ -274,7 +274,11 @@ Effect Hook
         WhenUse?
             ex ) tooltip의 위치
 
-    useInsertionEffect
+    💋useInsertionEffect( setup , dependencies? ) CSS-in-JS 라이브러리에서 작업 중이고 스타일을 주입할 위치가 필요하다면
+            useEffect 혹은 useLayoutEffect 를 사용
+                                ㄴ DOM 변경 전에 스타일을 주입..
+                                
+
 
 Performance Hook
 

@@ -220,6 +220,8 @@ Effect Hook
         // 작업 ..
     } , [value]) // dependenciesArray > [value] 가 아닌 [] 빈 배열일 경우 맨 처음 렌더링 될 때만 실행
 
+    반응형 값 :props , 컴포넌트 내부에서 선언된 모든 변수 , 함수
+
     useLayoutEffect
     useInsertionEffect
 

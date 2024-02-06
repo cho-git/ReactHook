@@ -9,7 +9,7 @@ State Hook
 
 2024-02-02
 
-    -useState(initialState) : state 변수를 추가할 수 있게 하는 React Hook
+    💋useState(initialState) : state 변수를 추가할 수 있게 하는 React Hook
 
         컴포넌트 최상위 레벨에서 useState 호출 state변수를 선언
             ex ) const [age,setAge] = useState(20);
@@ -46,7 +46,7 @@ State Hook
 
 2024-02-02
 
-    -useReducer(reducer ,initialArg , init?)
+    💋useReducer(reducer ,initialArg , init?)
 
         여러개의 하위 값을 지닌 state를 다룰 때 useReducer 를 사용하면 좋다
         Reducer Action Dispatch 세 가지 알기
@@ -75,7 +75,7 @@ Context Hook
 
 2024-02-02
 
-    -useContext (🎈UsContext 참고🎈) 부모에서 자식 컴퍼넌트로 props 를 전달 하기 위한 ReactHook
+    💋useContext (🎈UsContext 참고🎈) 부모에서 자식 컴퍼넌트로 props 를 전달 하기 위한 ReactHook
         
         광범위한 파일구조에서 일일히 넘겨주기 힘들기 때문에 전역변수 같이 하위 컴포넌트에서 선언만 해주면 사용가능
 
@@ -89,7 +89,7 @@ Ref Hook
 
 2024-02-05
 
-    -useRef(initialValue) 렌더링에 필요하지 않는 값을 참조할 수 있는 React 훅
+    💋useRef(initialValue) 렌더링에 필요하지 않는 값을 참조할 수 있는 React 훅
 
         ex ) useRef(0);
              useRef(null);  
@@ -122,7 +122,7 @@ Ref Hook
             ex )  Ref >> focus() input 요소에 접근 용이
                바닐라 자바스크립트의  Document.querySelector()와 비슷
 
-    -forwardRef 부모 컴포넌트에서 자녀 컴포넌트에 접근해야할 때 사용
+    💋forwardRef 부모 컴포넌트에서 자녀 컴포넌트에 접근해야할 때 사용
     
         폼에서 곧바로 ref 를 사용하지 못하고 하위에 있는 컴포넌트한테 Ref 를 넘겨주고 싶을 때 forwardRef 사용가능
             ex) 
@@ -166,7 +166,7 @@ Ref Hook
 
 2024-02-05
 
-    -useimperativehandle ( ref , createHandle , dependencies ? )
+    💋useimperativehandle ( ref , createHandle , dependencies ? )
 
         사용자가 정의한 Input 컴포넌트에 ref를 전달하고 싶을 때 사용합니다.
         ref를 사용하려면 Input 컴포넌트를 React.forwardRef로 수정한 뒤 useImperativeHandle을 사용하여 부모 컴포넌트에서 ref를 핸들링할 수 있도록 해야합니다.
@@ -205,7 +205,7 @@ Effect Hook
 
 2024-02-05
 
-    useEffect(() =>{}) 기본적으로 인자로 callback 함수를 받는다.
+    💋useEffect(() =>{}) 기본적으로 인자로 callback 함수를 받는다.
                 
         어떠한 컴포넌트가  1.Mount(화면에서 첫 렌더링) 됐을 때  2. Update(다시 렌더링) 됐을 떄 3. UnMount(화면에서 사라질 떄) 됐을 때 
             특정 작업을 처리하는 코드를 실행 시키고 싶을 때 사용한다.
@@ -263,7 +263,17 @@ Effect Hook
     //?useEffectEvent?가 뭐지//
 
 
-    useLayoutEffect
+    💋useLayoutEffect( setup , dependencies?)는 브라우저가 화면을 다시 채우기 전에 실행되는 버전의 useEffect
+        useEffect와 비슷한 부분이 많으므로 간략
+                >> useLayoutEffect 를 호출하여 레이아웃을 측정
+                >> Hook 이므로 최상위 레벨에서 호출
+                >> 반환값 undefined
+            useLayoutEffect 내부의 코드와 여기에서 예약된 모든 상태 없데이트는 브라우저가 화면을 다시 그리는 것을 차단.
+                >> useEffect 는 차단하지 않음
+                과도하게 사용하면 앱이 느려지므로 가급적이면 useEffect를 사용하자
+        WhenUse?
+            ex ) tooltip의 위치
+
     useInsertionEffect
 
 Performance Hook

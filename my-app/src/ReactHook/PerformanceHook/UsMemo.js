@@ -2,13 +2,18 @@ import React, { useMemo, useState } from "react";
 import { Link } from 'react-router-dom'
 const hardCalculate = (number) => {
     console.log('어려운 계산!');
+    console.time('timer') 
     for (let i = 0; i < 999999999; i++) { } // 생각하는 시간
+    console.timeEnd('timer') //0.5 초 500ms
     return number + 10000;
 }
 const easyCalculate = (number) => {
+    console.time('timer')
     console.log('쉬운 계산!');
+    console.timeEnd('timer') //0.0005초
     return number + 1;
-} // 쉬운 계산기를 사용해봤지만 useState 떄문에 UsMemo 컴포넌트가 새로 렌더링이 되기 떄문에
+} 
+// 쉬운 계산기를 사용해봤지만 useState 떄문에 UsMemo 컴포넌트가 새로 렌더링이 되기 떄문에
 //    hardSum 과  easySum 이 모두 초기화가 되면서 hardCalculate 가 다시 불려지게 된다.
 //    그러면서 for (let i = 0; i < 999999999; i++) { } // 생각하는 시간만큼의 시간이 걸리기 떄문에 비효율적이다
 //    해결하기위해 easySum 만 불렷을때는 hardCalculate 가 불리지 않게하는 방법을 사용하기위해
@@ -55,7 +60,7 @@ const UsMemo = () => {
                     color: 'pink',
                     fontWeight: 'bold',
                 }}
-                    to={"/UsMemoVer2"}>useMemo v.2</Link>
+                    to={"/UsMemoVer2"}>useCallback v.2</Link>
             </div>
         </div>
     )

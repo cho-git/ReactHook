@@ -284,13 +284,17 @@ Performance Hook
 
      Optimization(최적화) 를 위한 대표적인 ReactHook 
                                             useMemo , useCallback
-    useMemo
+   💋useMemo
         동일한 값을 리턴하는 함수를 반복적으로 호출해야 할 경우
          맨처음 값을 계산할 때 해당 값을 메모리에 저장한 뒤 
             다시 계산하지 않고 필요할 때 꺼내쓰는 재사용하는 기법
 
+        
         Memo = Memoization  >>>>> 함수를 메모리에 할당해서 사용하기 때문에 무분별한 사용은 오히려 메모리 성능에 저하를 일으킬 수 있다 .
                                     필요한 경우에만 사용하자.
+            반환 값을 캐싱하는 것을 메모화 , 이것이 useMemo를 활용하는 이유
+
+        간단히 말해서 useMemo 는 의존성이 변경되기 전까지 계산 결과를 캐시합니다.
 
         ex ) funtion Component() {
             const value = useMemo (()=> calculate() ,[]
@@ -329,10 +333,34 @@ Performance Hook
         }
             locationOne === locationTwo > false
         // 변수 안에는 메모리 상의 주소가 들어있기 떄문에 두 객체는 다른 주소를 비교하기에 false 가 나온다 !!!!!!!!!!!!
-        
 
 
-    useCallback
+
+    💋useCallback [ Optimization(최적화) , Memoization ]
+        const calculate = useCallback(() => {
+            return + 1;
+        },[item]) 
+         구조 ㄴ 첫 번째 인자 callback함수 , 두 번째 인자는 배열
+            useCallback으로 calculate함수를 이용해 메모리에 함수를 Memoization 후 필요할 때마다 메모리에서 가져와 재사용
+    
+    function Component(){
+        const calculate = ( num ) => {
+            return num + 1
+        }
+        return <div> {value} </div>
+    }
+    react 에서 <Component/> 렌더링이 되면 Component 함수 호출 > 모든 내부 변수 초기화
+    function Component(){
+        const calculate = useCallback(( num ) => {
+            return num + 1
+        },[item]);
+        return <div> {value} </div>
+    }
+
+                                    
+
+
+
     useTransition
     useDeferredValue
 

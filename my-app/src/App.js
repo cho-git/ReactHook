@@ -22,6 +22,9 @@ import UsMemo from './ReactHook/PerformanceHook/UsMemo';
 import UsMemoVer2 from './ReactHook/PerformanceHook/UsMemoVer2';
 import UsCallback from './ReactHook/PerformanceHook/UsCallback';
 import UsCallbackVer2 from './ReactHook/PerformanceHook/UsCallbackVer2';
+import Memo from './ReactHook/PerformanceHook/React.Memo/Memo';
+import MemoUsMemo from './ReactHook/PerformanceHook/React.Memo/MemoUsMemo';
+import MemoUsCallback from './ReactHook/PerformanceHook/React.Memo/MemoUsCallback';
 import './index.css'
 function App() {
   const commonStyle = {
@@ -66,6 +69,10 @@ function App() {
         <Route path='/UsMemoVer2' element={<UsMemoVer2 />}/>
         <Route path='/UsCallback' element={<UsCallback />}/>
         <Route path='/UsCallbackVer2' element={<UsCallbackVer2 />}/>
+        <Route path='/Memo' element={<Memo />}/>
+        <Route path='/MemoUsMemo' element={<MemoUsMemo />}/>
+        <Route path='/MemoUsCallback' element={<MemoUsCallback />}/>
+        
       </Routes>
     </div >
 

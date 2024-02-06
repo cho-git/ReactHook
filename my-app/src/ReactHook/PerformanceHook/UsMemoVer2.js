@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-
+import {Link} from 'react-router-dom'
 const UsMemoVer2 = () =>{
    const [number , setNumber] = useState(0);
    const [isKorea , setIsKorea] = useState(true);
@@ -54,6 +54,24 @@ const UsMemoVer2 = () =>{
             // }}>나라 : {location}</p>   
          }}>나라 : {location.country}</p> 
             <button onClick={() => setIsKorea(!isKorea)}>비행기 탑승!</button>
+            <div style={{
+                paddingTop: '20px'
+            }}>
+                <hr></hr>
+                <h5
+                style={{
+                    color:'gray',
+                    // paddingBottom:'10px'
+                    padding : '20px 0 30px 0'
+                }}>useCallback 과 useMemo를 공부하고 React.Memo에 대해 알아보자</h5>
+                <Link style={{
+                    marginRight: '5px',
+                    textDecoration: 'none',
+                    color: 'green',
+                    fontWeight: 'bold',
+                }}
+                    to={"/Memo"}>React.Memo </Link>
+            </div>
         </div>
     )
 }

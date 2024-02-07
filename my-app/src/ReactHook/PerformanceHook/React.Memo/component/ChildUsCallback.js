@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 
-const ChildUsCallback = ({ name }) => {
+const ChildUsCallback = ({ name , names}) => {
     console.log('🙅‍♂️자녀🙅‍♀️ 컴포넌트도 렌더링 되었네요')
     return (
         <div style={{
@@ -13,7 +13,10 @@ const ChildUsCallback = ({ name }) => {
             width: '50%',
         }}>
             <h3>🙅‍♂️자녀🙅‍♀️</h3>
-            <p>성 : {name}</p>
+            <p>이름 : {name}</p>
+            <p>성 : {names.lastname}</p>
+            <p>이름 : {names.firstname}</p>
+            
         </div>
     )
 }

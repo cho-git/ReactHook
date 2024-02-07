@@ -25,6 +25,8 @@ import UsCallbackVer2 from './ReactHook/PerformanceHook/UsCallbackVer2';
 import Memo from './ReactHook/PerformanceHook/React.Memo/Memo';
 import MemoUsMemo from './ReactHook/PerformanceHook/React.Memo/MemoUsMemo';
 import MemoUsCallback from './ReactHook/PerformanceHook/React.Memo/MemoUsCallback';
+import UsTransition from './ReactHook/PerformanceHook/TransitionDeferred/UsTransition';
+
 import './index.css'
 function App() {
   const commonStyle = {
@@ -49,6 +51,7 @@ function App() {
           <Link style={commonStyle} to={"/UsEffect"}> useEffect |</Link>
           <Link style={commonStyle} to={"/UsMemo"}> useMemo |</Link>
           <Link style={commonStyle} to={"/UsCallback"}> useCallback |</Link>
+          <Link style={commonStyle} to={"/UsTransition"}> useTransition |</Link>
         </nav>
       </div>
       <Routes>
@@ -72,7 +75,7 @@ function App() {
         <Route path='/Memo' element={<Memo />}/>
         <Route path='/MemoUsMemo' element={<MemoUsMemo />}/>
         <Route path='/MemoUsCallback' element={<MemoUsCallback />}/>
-        
+        <Route path='UsTransition' element={<UsTransition/>}/>
       </Routes>
     </div >
 

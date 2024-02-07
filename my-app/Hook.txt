@@ -369,25 +369,21 @@ Performance Hook
             2 ) 컴포넌트가 렌더링이 될때마다 복잡한 로직을 처리해야한다면        
         React.Memo는 오직 Props 변화에만 의존하는 최적화 방법입니다.
         
-        1.React.Memo + useMemo 
-        2.React.Memo  + useCallback  를 사용해보자
+        1.React.Memo + useMemo  MemoUsMemo.js 참고
+        2.React.Memo  + useCallback  를 사용해보자  MemoUsCallback.js 참고
 
-
-
-                
-
-
-
-    useTransition
-    useDeferredValue
+    💋useTransition 동시성 기능과 지연된 사용자 인터페이스에서 발생하는 문제해결
+        const [isPending , startTransition] =useTransition();
+                ㄴ 현재 보류 중인 일부 상태 업데이트가 있는지 여부를 알려줌
+                    ex )   {isPending && <p>Updating List...</p>}
+    💋useDeferredValue 동시성 기능과 지연된 사용자 인터페이스에서 발생하는 문제해결
+        값이 위에서 제공되고 해당 setState 호출을 제어할 수 없는 경우에 사용
 
 
 
 BrowserRouter >> npm install react-router-dom
      웹 화면에서 메뉴, 특정 주소를 입력 시 화면 전환인 라우팅 처리를 위한 react-router-dom
      
-
-
 
 번외 React 의 느낌
     참고 https://www.youtube.com/watch?v=xnk_1Q1O5ro&list=PLjQV3hketAJkh6BEl0n4PDS_2fBd0cS9v&t=728s

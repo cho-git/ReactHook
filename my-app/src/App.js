@@ -27,6 +27,9 @@ import MemoUsMemo from './ReactHook/PerformanceHook/React.Memo/MemoUsMemo';
 import MemoUsCallback from './ReactHook/PerformanceHook/React.Memo/MemoUsCallback';
 import UsTransition from './ReactHook/PerformanceHook/TransitionDeferred/UsTransition';
 
+import CustomHook from './ReactHook/customHook/CustomHook';
+import CustomHook2 from './ReactHook/customHook/CustomHook2';
+
 import './index.css'
 function App() {
   const commonStyle = {
@@ -52,6 +55,7 @@ function App() {
           <Link style={commonStyle} to={"/UsMemo"}> useMemo |</Link>
           <Link style={commonStyle} to={"/UsCallback"}> useCallback |</Link>
           <Link style={commonStyle} to={"/UsTransition"}> useTransition |</Link>
+          <Link style={commonStyle} to={"/CustomHook"}> CustomHook |</Link>
         </nav>
       </div>
       <Routes>
@@ -76,6 +80,8 @@ function App() {
         <Route path='/MemoUsMemo' element={<MemoUsMemo />}/>
         <Route path='/MemoUsCallback' element={<MemoUsCallback />}/>
         <Route path='/UsTransition' element={<UsTransition/>}/>
+        <Route path='/CustomHook' element={<CustomHook/>}/>CustomHook2
+        <Route path='/CustomHook2' element={<CustomHook2/>}/>
       </Routes>
     </div >
 

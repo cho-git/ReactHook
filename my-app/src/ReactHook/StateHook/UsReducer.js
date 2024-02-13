@@ -1,9 +1,10 @@
 import React, { useReducer, useState } from "react";
 import { Link } from "react-router-dom"
 // state가 복잡할 경우 사용하기 좋은 useReducer
-// reducer : state 를 업데이트 하는 역할 (은행)
-// dispatch : state 업데이트를 위한 요구
-// action : 요구의 내용
+// state : 거래내역
+// dispatch : state 업데이트를 위한 요구 
+// action : 요구의 내용 "만원 출금해주세요"
+// reducer : state 를 업데이트 하는 역할 "은행"
 const ACTION_TYPE = {
     deposit: 'deposit',
     withdraw: 'withdraw',
@@ -40,7 +41,7 @@ const UsReducer = () => {
     const [money, dispatch] = useReducer(reducer, 0);
     return (
         <div style={{ textAlign: 'center' }}>
-            <h3>useReducer 은행</h3>
+            <h4>useReducer 은행</h4>
             <p> 잔고 : {money} 원</p>
             <input
                 type="number"

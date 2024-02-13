@@ -75,7 +75,7 @@ function App() {
         <Route path='/Memo' element={<Memo />}/>
         <Route path='/MemoUsMemo' element={<MemoUsMemo />}/>
         <Route path='/MemoUsCallback' element={<MemoUsCallback />}/>
-        <Route path='UsTransition' element={<UsTransition/>}/>
+        <Route path='/UsTransition' element={<UsTransition/>}/>
       </Routes>
     </div >
 
